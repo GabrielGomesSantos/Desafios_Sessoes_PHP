@@ -1,4 +1,6 @@
 # Dessafios_Sessoes_PHP
+
+## Feito por: Gabriel Gomes dos Santos / Fernanda Coutinho
 Desenvolver um sistema de carrinho de compras usando sessões em PHP. 
 Senai
 
