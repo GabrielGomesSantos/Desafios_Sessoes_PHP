@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
+
 * {
     margin: 0px;
 }    
@@ -86,3 +88,127 @@ nav {
     top: 25px;
     right: 560px;
 }
+
+.texto p{
+    font-size: 30pt;
+    font-family: "Arimo", sans-serif;
+}
+
+.voltar button {
+    text-decoration: none;
+    border: none;
+    font-family: "Arimo", sans-serif;
+    font-size: 13pt;
+    color: white;
+    background-color: #437FF6;
+    border-radius: 15px;
+    width: 120px;
+    height: 30px;
+    margin: 10px;
+    margin-left: 100px;
+    margin-right: -53px;
+}
+
+
+/* BODY */
+
+
+    .conteudo_carrinho{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .produtos_carrinho {
+        background-color: #EDEDED;
+        width: 740px;
+        height: 800px;
+        border-radius: 40px;
+        box-shadow: 0 2px 8px #0000002d;
+    }
+
+    .resumo {
+        background-color: #EDEDED;
+        width: 600px;
+        height: 350px;
+        border-radius: 40px;
+        font-size: 30pt;
+        text-align: left;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 10px;
+    }
+
+    .resumo p {
+        margin-left: 50px;
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    .informacao::after{
+        content: "";
+        width: 50px;
+        height: 50px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        top: -146px;
+        right: 0px;
+
+    }
+
+    .informacao::before {
+        content: "";
+        width: 50px;
+        height: 50px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        top: -25px;
+        left: 622px;
+    }
+
+    .informacao {
+        position: relative;
+        border-top: 2px dashed #535353;
+    }
+
+    .texto {
+        display: flex;
+        flex-direction: row;
+        
+    }
+    .texto p {
+        font-size: 20pt;
+        position: relative;
+    }
+
+    .menor, .preco{
+        color: #767272;
+        margin-right: 100px;
+    }
+
+    .menor{
+        position: absolute;
+        top: 0px;
+        left: -60px;
+        font-size: 12pt;
+    }
+
+    .button_carrinho button{
+        border: none;
+        text-decoration: none;
+        background-color: #437FF6;
+        color: white;
+        width: 300px;
+        height: 35px;
+        border-radius: 10px;
+        justify-content: center;
+        text-align: center;
+        box-shadow: 0 2px 8px #0000002d;
+    }

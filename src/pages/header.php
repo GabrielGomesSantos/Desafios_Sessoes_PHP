@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <title>Header</title>
     <link rel="stylesheet" href="../../assets/css/style_header.css">
 </head>
 <header>
