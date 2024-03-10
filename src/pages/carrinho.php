@@ -1,4 +1,12 @@
 <?php
+    session_start();
+
+    $Carrinho = $_SESSION['cart'];
+    $produtos = $_SESSION['produtos'];
+    $total_carrinho = count($_SESSION['cart']);
+    
+    $valor_total = 0
+    
 
 ?>
 
@@ -9,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/style_header.css">
+    <link rel="stylesheet" href="../../assets/css/style_carrinho.css">
 </head>
 <header>
 
@@ -17,11 +25,11 @@
         <div class="cabecalho">
 
             <div class="voltar">
-                <button>Voltar</button>
+                <button onclick="location.href='produtos.php'">Voltar</button>
             </div>
            
             <div class="texto">
-                <p>Meu Carrinho</p>
+                <p>Meu Carrinho</p> 
             </div>
 
            
@@ -31,7 +39,7 @@
                     <img src="../../assets/image/cart-shopping-solid(1).svg" alt="" id="carrinho">
 
                     <div class="mostrador">
-                        <!-- <p><?php Echo($total_carrinho)?></p> -->
+                       <p><?php echo($total_carrinho)?></p>
                     </div>
                 </div>
                 
@@ -48,8 +56,49 @@
 
         <div class="produtos_carrinho">
             <?php
-            
-            ?>
+                   
+                foreach ($Carrinho as $item) {
+                    if (isset($item['id'])) {
+                        foreach ($produtos as $produto) {
+                            if ($item['id'] == $produto['id']) {
+                                $valor_total += floatval($produto['price'] * $item['qtd']);
+
+                                echo("
+                                        <div class='produtos'> 
+                                            <div class='imagem_carrinho'>
+                                                <img src='{$produto['img']}' alt=''>
+                                            </div>
+                                            
+                                            <div class='nome_carrinho'> 
+                                                <p>{$produto['name']}</p>
+                                                <a href='excluir.php?id={$produto['id']}'>excluir</a>
+                                            </div>
+
+                                            <div class='price_carrinho'>
+                                                <p>{$produto['price']},00</p>
+                                            </div>
+
+                                            <div class='quantidade_carrinho'>
+                                                <button id='{$produto['id']}' onclick=\"editar(this.id,'plus')\">+</button>
+                                                    <p>{$item['qtd']}</p>
+                                                <button id='{$produto['id']}' onclick=\"editar(this.id,'minus')\">-</button>
+                                            </div>
+
+                                        </div>
+
+                                        <div class='separador'>
+
+                                        </div>
+                                    
+                                    ");
+                                break;
+                            }
+                        }
+                    }
+                }
+
+
+            ?>  
         </div>
 
         <div class="resumo">
@@ -57,8 +106,8 @@
             <div class="informacao">
                 <div class="texto">
                     <p>Produtos</p>
-                <p class="menor">(3)</p>
-                    <p class="preco"> 11.700,00</p>
+                <p class="menor">(<?php echo($total_carrinho)?>)</p>
+                    <p class="preco"> <?php Echo($valor_total . ",00")?></p>
                 </div>
             </div>
 
